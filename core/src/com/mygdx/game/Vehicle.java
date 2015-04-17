@@ -13,13 +13,14 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
  */
 public abstract class Vehicle {
     
-    private int velocity;
+    private float velocity;
     private double weight;
     private int startMotionDirection, finishMotionDirection;
     private float xOnScreen, yOnScreen;
     protected int width, height;
     private boolean turn;  // признак поворота
     private int lanes;  // номера полосы движения
+    private int timeToStart;  // время до старта
     
     public Vehicle(int velocity, double weight, int startMotionDirection) {
         this.velocity = velocity;
@@ -50,11 +51,11 @@ public abstract class Vehicle {
         drawAction.draw(sr, this);
     }
     
-    public int getVelocity() {
+    public float getVelocity() {
         return this.velocity;
     }
     
-    public void setVelocity(int velocity) {
+    public void setVelocity(float velocity) {
         this.velocity = velocity;
     }
     
@@ -128,6 +129,19 @@ public abstract class Vehicle {
     
     public void setLanes(int lanes) {
         this.lanes = lanes;
+    }
+    
+    public int getTimeToStart() {
+        return this.timeToStart;
+    }
+    
+    public void setTimeToStart(int timeToStart) {
+        this.timeToStart = timeToStart;
+    }
+    
+    public void reduceTimeToStart() {
+        if (timeToStart > 0)
+            timeToStart--;
     }
     
     private int generateFinishMotionDirection(int startMotionDirection) {

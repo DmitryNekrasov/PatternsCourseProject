@@ -154,12 +154,109 @@ public class CrossroadDrawer {
             startShortMarking -= 2 * crossroads.widthShortMarking;
         }
         
+        motion();
+        
         // тачки
         for (Vehicle next: Data.vehicles) {
             next.performDraw(sr);
         }
         
         sr.end();
+    }
+    
+    public void motion() {
+        for (Vehicle next: Data.vehicles) {
+            next.reduceTimeToStart();
+            
+            if (next.getTimeToStart() > 0)
+                continue;
+            
+            if (!next.isTurned()) {
+            
+                if (next.getLanes() == Constants.second) {
+                    switch (next.getStartMotionDirection()) {
+                        case Constants.leftToRight:
+                            next.setXOnScreen(next.getXOnScreen() + next.getVelocity());
+                            break;
+                        case Constants.rightToLeft:
+                            next.setXOnScreen(next.getXOnScreen() - next.getVelocity());
+                            break;
+                        case Constants.bottomToTop:
+                            next.setYOnScreen(next.getYOnScreen() + next.getVelocity());
+                            break;
+                        default:
+                            next.setYOnScreen(next.getYOnScreen() - next.getVelocity());
+                            break;
+                    }
+                } else if (next.getLanes() == Constants.first) {
+                    switch (next.getStartMotionDirection()) {
+                        case Constants.leftToRight:
+                            next.setXOnScreen(next.getXOnScreen() + next.getVelocity());
+                            if (next.getXOnScreen() >= Crossroads.xFirstBottomToTop) {
+                                next.setXOnScreen(Crossroads.xFirstBottomToTop);
+                                next.makeTurn();
+                            }
+                            break;
+                        case Constants.rightToLeft:
+                            next.setXOnScreen(next.getXOnScreen() - next.getVelocity());
+                            if (next.getXOnScreen() <= Crossroads.xFirstTopToBottom) {
+                                next.setXOnScreen(Crossroads.xFirstTopToBottom);
+                                next.makeTurn();
+                            }
+                            break;
+                        case Constants.bottomToTop:
+                            next.setYOnScreen(next.getYOnScreen() + next.getVelocity());
+                            if (next.getYOnScreen() >= Crossroads.yFirstRightToLeft) {
+                                next.setYOnScreen(Crossroads.yFirstRightToLeft);
+                                next.makeTurn();
+                            }
+                            break;
+                        default:
+                            next.setYOnScreen(next.getYOnScreen() - next.getVelocity());
+                            if (next.getYOnScreen() <= Crossroads.yFirstLeftToRight) {
+                                next.setYOnScreen(Crossroads.yFirstLeftToRight);
+                                next.makeTurn();
+                            }
+                            break;
+                    }
+                }
+            
+            } else {  // если тачка повернула
+                if (next.getLanes() == Constants.second) {
+                    switch (next.getFinishMotionDirection()) {
+                        case Constants.leftToRight:
+                            next.setXOnScreen(next.getXOnScreen() + next.getVelocity());
+                            break;
+                        case Constants.rightToLeft:
+                            next.setXOnScreen(next.getXOnScreen() - next.getVelocity());
+                            break;
+                        case Constants.bottomToTop:
+                            next.setYOnScreen(next.getYOnScreen() + next.getVelocity());
+                            break;
+                        default:
+                            next.setYOnScreen(next.getYOnScreen() - next.getVelocity());
+                            break;
+                    }
+                } else if (next.getLanes() == Constants.first) {
+                    switch (next.getFinishMotionDirection()) {
+                        case Constants.leftToRight:
+                            next.setXOnScreen(next.getXOnScreen() + next.getVelocity());
+                            break;
+                        case Constants.rightToLeft:
+                            next.setXOnScreen(next.getXOnScreen() - next.getVelocity());
+                            break;
+                        case Constants.bottomToTop:
+                            next.setYOnScreen(next.getYOnScreen() + next.getVelocity());
+                            break;
+                        default:
+                            next.setYOnScreen(next.getYOnScreen() - next.getVelocity());
+                            break;
+                    }
+                }
+            }
+            
+            
+        }
     }
     
 }

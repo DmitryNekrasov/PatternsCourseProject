@@ -11,7 +11,7 @@ package com.mygdx.game;
  */
 public class CreatorBus extends Creator {
 
-    final private int minVelocity = 1, maxVelocity = 10;
+    final private int minVelocity = 1, maxVelocity = 5;
     final private int minWeight = 50, maxWeight = 500;
     
     @Override

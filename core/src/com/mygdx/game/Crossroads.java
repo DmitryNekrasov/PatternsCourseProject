@@ -68,7 +68,7 @@ public class Crossroads {
         
         xFirstTopToBottom = midX - gap + ultraGap;
         xSecondTopToBottom = midX - 2 * gap + ultraGap;
-        xThirdBottomToTop = midX - 3 * gap + ultraGap;
+        xThirdTopToBottom = midX - 3 * gap + ultraGap;
         
     }
     

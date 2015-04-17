@@ -22,6 +22,33 @@ public class CreatorTruck extends Creator {
         Truck truck = new Truck(velocity, weight, startMotionDirection);
         float x = (float) Global.generateRandom(0, (int) Constants.widthWindow);
         float y = (float) Global.generateRandom(0, (int) Constants.heightWindow);
+        
+        if (truck.getStartMotionDirection() == Constants.leftToRight) {
+            switch (truck.getLanes()) {
+                case Constants.first: y = Crossroads.yFirstLeftToRight; break;
+                case Constants.second: y = Crossroads.ySecondLeftToRight; break;
+                default: y = Crossroads.yThirdLeftToRight; break;
+            }
+        } else if (truck.getStartMotionDirection() == Constants.rightToLeft) {
+            switch (truck.getLanes()) {
+                case Constants.first: y = Crossroads.yFirstRightToLeft; break;
+                case Constants.second: y = Crossroads.ySecondRightToLeft; break;
+                default: y = Crossroads.yThirdRightToLeft; break;
+            }
+        } else if (truck.getStartMotionDirection() == Constants.bottomToTop) {
+            switch (truck.getLanes()) {
+                case Constants.first: x = Crossroads.xFirstBottomToTop; break;
+                case Constants.second: x = Crossroads.xSecondBottomToTop; break;
+                default: x = Crossroads.xThirdBottomToTop; break;
+            }
+        } else {
+            switch (truck.getLanes()) {
+                case Constants.first: x = Crossroads.xFirstTopToBottom; break;
+                case Constants.second: x = Crossroads.xSecondTopToBottom; break;
+                default: x = Crossroads.xThirdTopToBottom; break;
+            }
+        }
+        
         truck.setXOnScreen(x);
         truck.setYOnScreen(y);
         return truck;

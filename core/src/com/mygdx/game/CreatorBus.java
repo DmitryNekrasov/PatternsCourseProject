@@ -22,6 +22,33 @@ public class CreatorBus extends Creator {
         Bus bus = new Bus(velocity, weight, startMotionDirection);
         float x = (float) Global.generateRandom(0, (int) Constants.widthWindow);
         float y = (float) Global.generateRandom(0, (int) Constants.heightWindow);
+        
+        if (bus.getStartMotionDirection() == Constants.leftToRight) {
+            switch (bus.getLanes()) {
+                case Constants.first: y = Crossroads.yFirstLeftToRight; break;
+                case Constants.second: y = Crossroads.ySecondLeftToRight; break;
+                default: y = Crossroads.yThirdLeftToRight; break;
+            }
+        } else if (bus.getStartMotionDirection() == Constants.rightToLeft) {
+            switch (bus.getLanes()) {
+                case Constants.first: y = Crossroads.yFirstRightToLeft; break;
+                case Constants.second: y = Crossroads.ySecondRightToLeft; break;
+                default: y = Crossroads.yThirdRightToLeft; break;
+            }
+        } else if (bus.getStartMotionDirection() == Constants.bottomToTop) {
+            switch (bus.getLanes()) {
+                case Constants.first: x = Crossroads.xFirstBottomToTop; break;
+                case Constants.second: x = Crossroads.xSecondBottomToTop; break;
+                default: x = Crossroads.xThirdBottomToTop; break;
+            }
+        } else {
+            switch (bus.getLanes()) {
+                case Constants.first: x = Crossroads.xFirstTopToBottom; break;
+                case Constants.second: x = Crossroads.xSecondTopToBottom; break;
+                default: x = Crossroads.xThirdTopToBottom; break;
+            }
+        }
+        
         bus.setXOnScreen(x);
         bus.setYOnScreen(y);
         return bus;

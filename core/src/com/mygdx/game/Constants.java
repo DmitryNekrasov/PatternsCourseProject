@@ -23,9 +23,9 @@ public class Constants {
     final public static int topToBottom = 4;
     
     // размеры тачек
-    final public static int widthCar = 10;
+    final public static int widthCar = 8;
     final public static int heightCar = 7;
-    final public static int widthBus = 10;
+    final public static int widthBus = 15;
     final public static int heightBus = 7;
     final public static int widthTruck = 10;
     final public static int heightTruck = 7;
@@ -40,5 +40,8 @@ public class Constants {
     
     // переменная, на которую мы делим рандом, чтобы скорость росла не слишком быстро
     final public static float den = 20f;
+    
+    // поправка скорости
+    final public static float correctionVelocity = 1.5f;
 
 }

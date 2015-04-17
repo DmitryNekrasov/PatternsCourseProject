@@ -13,7 +13,7 @@ public class CreatorBus extends Creator {
 
     final private int minVelocity = 1, maxVelocity = 5;
     final private int minWeight = 50, maxWeight = 500;
-    final private int minTimeToStart = 0, maxTimeToStart = 1000;
+    final private int minTimeToStart = 0, maxTimeToStart = 2000;
     
     @Override
     public Vehicle factoryMethod() {

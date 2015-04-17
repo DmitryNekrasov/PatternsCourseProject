@@ -290,7 +290,22 @@ public class CrossroadDrawer {
                     switch (veh1.getCurrentMotionDirection()) {
                         case Constants.leftToRight:
                             if (veh2.getXOnScreen() + veh2.getWidth() + Constants.okGap < veh1.getXOnScreen() && veh2.getXOnScreen() + veh2.getWidth() + Constants.okGap + veh2.getVelocity() > veh1.getXOnScreen()) {
-                                veh2.setVelocity(veh1.getVelocity() / 1.5f);
+                                veh2.setVelocity(veh1.getVelocity() / Constants.correctionVelocity);
+                            }
+                            break;
+                        case Constants.rightToLeft:
+                            if (veh2.getXOnScreen() - Constants.okGap - veh1.getWidth() > veh1.getXOnScreen() && veh2.getXOnScreen() - Constants.okGap - veh1.getWidth() - veh2.getVelocity() < veh1.getXOnScreen()) {
+                                veh2.setVelocity(veh1.getVelocity() / Constants.correctionVelocity);
+                            }
+                            break;
+                        case Constants.bottomToTop:
+                            if (veh2.getYOnScreen() + veh2.getWidth() + Constants.okGap < veh1.getYOnScreen() && veh2.getYOnScreen() + veh2.getWidth() + Constants.okGap + veh2.getVelocity() > veh1.getYOnScreen()) {
+                                veh2.setVelocity(veh1.getVelocity() / Constants.correctionVelocity);
+                            }
+                            break;
+                        default:
+                            if (veh2.getYOnScreen() - Constants.okGap - veh1.getWidth() > veh1.getYOnScreen() && veh2.getYOnScreen() - Constants.okGap - veh1.getWidth() - veh2.getVelocity() < veh1.getYOnScreen()) {
+                                veh2.setVelocity(veh1.getVelocity() / Constants.correctionVelocity);
                             }
                             break;
                     }

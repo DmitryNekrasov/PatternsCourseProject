@@ -35,6 +35,18 @@ public class CreatorCar extends Creator {
                 case Constants.second: y = Crossroads.ySecondRightToLeft; break;
                 default: y = Crossroads.yThirdRightToLeft; break;
             }
+        } else if (car.getStartMotionDirection() == Constants.bottomToTop) {
+            switch (car.getLanes()) {
+                case Constants.first: x = Crossroads.xFirstBottomToTop; break;
+                case Constants.second: x = Crossroads.xSecondBottomToTop; break;
+                default: x = Crossroads.xThirdBottomToTop; break;
+            }
+        } else {
+            switch (car.getLanes()) {
+                case Constants.first: x = Crossroads.xFirstTopToBottom; break;
+                case Constants.second: x = Crossroads.xSecondTopToBottom; break;
+                default: x = Crossroads.xThirdTopToBottom; break;
+            }
         }
         
         car.setXOnScreen(x);

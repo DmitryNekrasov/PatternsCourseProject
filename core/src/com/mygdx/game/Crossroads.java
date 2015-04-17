@@ -60,6 +60,16 @@ public class Crossroads {
         ySecondRightToLeft = midY + gap + ultraGap;
         yThirdRightToLeft = midY + 2 * gap + ultraGap;
         
+        float midX = Constants.widthWindow / 2;
+        
+        xFirstBottomToTop = midX + ultraGap;
+        xSecondBottomToTop = midX + gap + ultraGap;
+        xThirdBottomToTop = midX + 2 * gap + ultraGap;
+        
+        xFirstTopToBottom = midX - gap + ultraGap;
+        xSecondTopToBottom = midX - 2 * gap + ultraGap;
+        xThirdBottomToTop = midX - 3 * gap + ultraGap;
+        
     }
     
     public static Crossroads getInstance() {

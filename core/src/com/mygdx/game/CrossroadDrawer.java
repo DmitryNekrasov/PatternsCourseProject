@@ -267,6 +267,7 @@ public class CrossroadDrawer {
                         next.setYOnScreen(next.getYOnScreen() - next.getVelocity());
                         break;
                 }
+                next.setVelocity(next.getVelocity() + 0.1f);
             }
             
             

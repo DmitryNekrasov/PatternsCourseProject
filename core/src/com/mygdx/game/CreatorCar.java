@@ -13,7 +13,7 @@ public class CreatorCar extends Creator {
 
     final private int minVelocity = 3, maxVelocity = 7;
     final private int minWeight = 50, maxWeight = 500;
-    final private int minTimeToStart = 0, maxTimeToStart = 1000;
+    final private int minTimeToStart = 0, maxTimeToStart = 2000;
     
     @Override
     public Vehicle factoryMethod() {
@@ -24,8 +24,7 @@ public class CreatorCar extends Creator {
         
         car.setTimeToStart(Global.generateRandom(minTimeToStart, maxTimeToStart));
         
-        float x = 0;//(float) Global.generateRandom(0, (int) Constants.widthWindow);
-        float y = 0;//(float) Global.generateRandom(0, (int) Constants.widthWindow);
+        float x, y;
         
         if (car.getStartMotionDirection() == Constants.leftToRight) {
             x = -car.getWidth();

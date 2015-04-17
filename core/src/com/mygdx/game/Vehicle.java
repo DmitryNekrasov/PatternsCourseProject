@@ -16,6 +16,7 @@ public abstract class Vehicle {
     private int velocity;
     private double weight;
     private int startMotionDirection, finishMotionDirection;
+    private int xOnScreen, yOnScreen;
     
     public Vehicle(int velocity, double weight, int startMotionDirection) {
         this.velocity = velocity;
@@ -60,6 +61,22 @@ public abstract class Vehicle {
     
     public void setFinishMotionDirection(int finishMotionDirection) {
         this.finishMotionDirection = finishMotionDirection;
+    }
+    
+    public int getXOnScreen() {
+        return this.xOnScreen;
+    }
+    
+    public void setXOnScreen(int xOnScreen) {
+        this.xOnScreen = xOnScreen;
+    }
+    
+    public int getYOnScreen() {
+        return this.yOnScreen;
+    }
+    
+    public void setYOnScreen(int yOnScreen) {
+        this.yOnScreen = yOnScreen;
     }
     
     private int generateFinishMotionDirection(int startMotionDirection) {

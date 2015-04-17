@@ -18,6 +18,8 @@ public class Crossroads {
     final public float widthCrosswalk; // ширина полоски пешеходника
     final public float heightCrosswalk; // высота полоски пешеходника
     
+    final public float gapTrafficLight; // отступ светофора от дороги
+    
     // экранные координаты тачек на полосах движения
     public static float yFirstLeftToRight;
     public static float ySecondLeftToRight;
@@ -43,6 +45,7 @@ public class Crossroads {
         widthShortMarking = 3 * Constants.scale;
         widthCrosswalk = 20 * Constants.scale;
         heightCrosswalk = 2 * Constants.scale;
+        gapTrafficLight = 10 * Constants.scale;
         
         
         // вычисление экранных координат для тачек

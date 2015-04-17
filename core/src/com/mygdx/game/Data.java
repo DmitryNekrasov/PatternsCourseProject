@@ -14,5 +14,6 @@ import java.util.LinkedList;
 public class Data {
     
     public static LinkedList<Vehicle> vehicles = new LinkedList<Vehicle>();  // список транспортных средств
+    public static TrafficLight trafficLight1, trafficLight2, trafficLight3, trafficLight4;  // светофоры
     
 }

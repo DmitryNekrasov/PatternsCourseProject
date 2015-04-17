@@ -43,5 +43,8 @@ public class Constants {
     
     // поправка скорости
     final public static float correctionVelocity = 1.5f;
+    
+    // радиус светофорного фонаря
+    final public static float radius = 10;
 
 }

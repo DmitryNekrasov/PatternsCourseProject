@@ -16,6 +16,7 @@ public class CrossroadDrawer {
     
     private Crossroads crossroads;
     private final ShapeRenderer sr;
+    private TrafficLightDrawer tld1, tld2, tld3, tld4;
     
     float scaleRoad;
     float scaleMarking;
@@ -25,6 +26,21 @@ public class CrossroadDrawer {
         this.sr = sr;
         scaleRoad = crossroads.scaleRoad;
         scaleMarking = crossroads.scaleMarking;
+        
+        float x1 = Constants.widthWindow / 2 - crossroads.scaleRoad - crossroads.gapTrafficLight - Constants.radius * 2 - 7;
+        float x2 = Constants.widthWindow / 2 + crossroads.scaleRoad + crossroads.gapTrafficLight;
+        float y1 = Constants.heightWindow / 2 - crossroads.scaleRoad - crossroads.gapTrafficLight - Constants.radius * 6 - 12;
+        float y2 = Constants.heightWindow / 2 + crossroads.scaleRoad + crossroads.gapTrafficLight;
+        
+        Data.trafficLight1 = new TrafficLight(false, false, true, x1, y1, Constants.radius);
+        Data.trafficLight2 = new TrafficLight(false, false, true, x2, y2, Constants.radius);
+        Data.trafficLight3 = new TrafficLight(false, false, true, x2, y1, Constants.radius);
+        Data.trafficLight4 = new TrafficLight(false, false, true, x1, y2, Constants.radius);
+        
+        tld1 = new TrafficLightDrawer(Data.trafficLight1, sr);
+        tld2 = new TrafficLightDrawer(Data.trafficLight2, sr);
+        tld3 = new TrafficLightDrawer(Data.trafficLight3, sr);
+        tld4 = new TrafficLightDrawer(Data.trafficLight4, sr);
     }
     
     public void draw() {
@@ -160,6 +176,12 @@ public class CrossroadDrawer {
         for (Vehicle next: Data.vehicles) {
             next.performDraw(sr);
         }
+        
+        // светофоры
+        tld1.draw();
+        tld2.draw();
+        tld3.draw();
+        tld4.draw();
         
         sr.end();
     }

@@ -19,6 +19,7 @@ public abstract class Vehicle {
     private float xOnScreen, yOnScreen;
     protected int width, height;
     private boolean turn;
+    private int lanes;  // номера полосы движения
     
     public Vehicle(int velocity, double weight, int startMotionDirection) {
         this.velocity = velocity;
@@ -26,6 +27,21 @@ public abstract class Vehicle {
         this.startMotionDirection = startMotionDirection;
         this.finishMotionDirection = generateFinishMotionDirection(startMotionDirection);
         turn = false;
+        
+        // вычисление полосы движения
+        
+        if (startMotionDirection == Constants.leftToRight && finishMotionDirection == Constants.bottomToTop || 
+                startMotionDirection == Constants.rightToLeft && finishMotionDirection == Constants.topToBottom ||
+                startMotionDirection == Constants.bottomToTop && finishMotionDirection == Constants.rightToLeft ||
+                startMotionDirection == Constants.topToBottom && finishMotionDirection == Constants.leftToRight
+                ) {
+            lanes = Constants.first;
+        } else if (startMotionDirection == finishMotionDirection) {
+            lanes = Constants.second;
+        } else {
+            lanes = Constants.third;
+        }
+        
     }
     
     public IDraw drawAction;

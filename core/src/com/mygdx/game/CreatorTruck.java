@@ -20,6 +20,10 @@ public class CreatorTruck extends Creator {
         double weight = Global.generateRandom(minWeight, maxWeight) + Math.random();
         int startMotionDirection = Global.generateRandom(1, 4);
         Truck truck = new Truck(velocity, weight, startMotionDirection);
+        float x = (float) Global.generateRandom(0, (int) Constants.widthWindow);
+        float y = (float) Global.generateRandom(0, (int) Constants.heightWindow);
+        truck.setXOnScreen(x);
+        truck.setYOnScreen(y);
         return truck;
     }
     

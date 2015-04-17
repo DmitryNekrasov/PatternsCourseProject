@@ -14,6 +14,8 @@ public class Car extends Vehicle {
     public Car(int velocity, double weight, int startMotionDirection) {
         super(velocity, weight, startMotionDirection);
         drawAction = new CarDrawer();
+        width = Constants.widthCar;
+        height = Constants.heightCar;
     }
     
 }

@@ -17,9 +17,30 @@ public class TruckDrawer implements IDraw {
     @Override
     public void draw(ShapeRenderer sr, Vehicle vehicle) {
         sr.setColor(Color.BLUE);
-        float x = (float) Global.generateRandom(0, (int) Constants.widthWindow);
-        float y = (float) Global.generateRandom(0, (int) Constants.heightWindow);
-        sr.circle(x, y, 15);
+        float x = vehicle.getXOnScreen();
+        float y = vehicle.getYOnScreen();
+        
+        int widthRect, heightRect;
+        
+        if (!vehicle.isTurned()) {
+            if (vehicle.getStartMotionDirection() == Constants.leftToRight || vehicle.getStartMotionDirection() == Constants.rightToLeft) {
+                widthRect = vehicle.getWidth();
+                heightRect = vehicle.getHeight();
+            } else {
+                widthRect = vehicle.getHeight();
+                heightRect = vehicle.getWidth();
+            }
+        } else {
+            if (vehicle.getFinishMotionDirection() == Constants.leftToRight || vehicle.getFinishMotionDirection() == Constants.rightToLeft) {
+                widthRect = vehicle.getWidth();
+                heightRect = vehicle.getHeight();
+            } else {
+                widthRect = vehicle.getHeight();
+                heightRect = vehicle.getWidth();
+            }
+        }
+        
+        sr.rect(x, y, widthRect, heightRect);
     }
     
 }

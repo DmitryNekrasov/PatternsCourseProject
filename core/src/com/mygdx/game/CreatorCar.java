@@ -20,6 +20,10 @@ public class CreatorCar extends Creator {
         double weight = Global.generateRandom(minWeight, maxWeight) + Math.random();
         int startMotionDirection = Global.generateRandom(1, 4);
         Car car = new Car(velocity, weight, startMotionDirection);
+        float x = (float) Global.generateRandom(0, (int) Constants.widthWindow);
+        float y = (float) Global.generateRandom(0, (int) Constants.heightWindow);
+        car.setXOnScreen(x);
+        car.setYOnScreen(y);
         return car;
     }
     

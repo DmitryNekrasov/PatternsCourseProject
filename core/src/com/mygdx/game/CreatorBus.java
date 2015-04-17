@@ -20,6 +20,10 @@ public class CreatorBus extends Creator {
         double weight = Global.generateRandom(minWeight, maxWeight) + Math.random();
         int startMotionDirection = Global.generateRandom(1, 4);
         Bus bus = new Bus(velocity, weight, startMotionDirection);
+        float x = (float) Global.generateRandom(0, (int) Constants.widthWindow);
+        float y = (float) Global.generateRandom(0, (int) Constants.heightWindow);
+        bus.setXOnScreen(x);
+        bus.setYOnScreen(y);
         return bus;
     }
     

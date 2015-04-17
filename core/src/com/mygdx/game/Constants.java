@@ -21,5 +21,13 @@ public class Constants {
     final public static int rightToLeft = 2;
     final public static int bottomToTop = 3;
     final public static int topToBottom = 4;
+    
+    // размеры тачек
+    final public static int widthCar = 10;
+    final public static int heightCar = 7;
+    final public static int widthBus = 10;
+    final public static int heightBus = 7;
+    final public static int widthTruck = 10;
+    final public static int heightTruck = 7;
 
 }

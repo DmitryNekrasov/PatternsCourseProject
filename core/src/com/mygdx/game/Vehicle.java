@@ -16,13 +16,16 @@ public abstract class Vehicle {
     private int velocity;
     private double weight;
     private int startMotionDirection, finishMotionDirection;
-    private int xOnScreen, yOnScreen;
+    private float xOnScreen, yOnScreen;
+    protected int width, height;
+    private boolean turn;
     
     public Vehicle(int velocity, double weight, int startMotionDirection) {
         this.velocity = velocity;
         this.weight = weight;
         this.startMotionDirection = startMotionDirection;
         this.finishMotionDirection = generateFinishMotionDirection(startMotionDirection);
+        turn = false;
     }
     
     public IDraw drawAction;
@@ -63,20 +66,44 @@ public abstract class Vehicle {
         this.finishMotionDirection = finishMotionDirection;
     }
     
-    public int getXOnScreen() {
+    public float getXOnScreen() {
         return this.xOnScreen;
     }
     
-    public void setXOnScreen(int xOnScreen) {
+    public void setXOnScreen(float xOnScreen) {
         this.xOnScreen = xOnScreen;
     }
     
-    public int getYOnScreen() {
+    public float getYOnScreen() {
         return this.yOnScreen;
     }
     
-    public void setYOnScreen(int yOnScreen) {
+    public void setYOnScreen(float yOnScreen) {
         this.yOnScreen = yOnScreen;
+    }
+    
+    public int getWidth() {
+        return this.width;
+    }
+    
+    public void setWidth(int width) {
+        this.weight = width;
+    }
+    
+    public int getHeight() {
+        return this.height;
+    }
+    
+    public void setHeight(int height) {
+        this.height = height;
+    }
+    
+    public boolean isTurned() {
+        return turn;
+    }
+    
+    public void makeTurn() {
+        this.turn = true;
     }
     
     private int generateFinishMotionDirection(int startMotionDirection) {

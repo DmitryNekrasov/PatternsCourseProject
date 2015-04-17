@@ -14,6 +14,8 @@ public class Bus extends Vehicle {
     public Bus(int velocity, double weight, int startMotionDirection) {
         super(velocity, weight, startMotionDirection);
         drawAction = new BusDrawer();
+        width = Constants.widthBus;
+        height = Constants.heightBus;
     }
     
 }

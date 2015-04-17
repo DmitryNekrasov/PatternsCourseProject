@@ -21,6 +21,7 @@ public abstract class Vehicle {
     private boolean turn;  // признак поворота
     private int lanes;  // номера полосы движения
     private int timeToStart;  // время до старта
+    private float stepVelocity;  // шаг, с которым изменяется скорость
     
     public Vehicle(int velocity, double weight, int startMotionDirection) {
         this.velocity = velocity;
@@ -28,6 +29,7 @@ public abstract class Vehicle {
         this.startMotionDirection = startMotionDirection;
         this.finishMotionDirection = generateFinishMotionDirection(startMotionDirection);
         turn = false;
+        this.stepVelocity = velocity / Constants.den;
         
         // вычисление полосы движения
         
@@ -142,6 +144,18 @@ public abstract class Vehicle {
     public void reduceTimeToStart() {
         if (timeToStart > 0)
             timeToStart--;
+    }
+    
+    public float getStepVelocity() {
+        return this.stepVelocity;
+    }
+    
+    public void setStepVelocity(float stepVelocity) {
+        this.stepVelocity = stepVelocity;
+    }
+    
+    public void increaseVelocity() {
+        velocity += stepVelocity;
     }
     
     private int generateFinishMotionDirection(int startMotionDirection) {

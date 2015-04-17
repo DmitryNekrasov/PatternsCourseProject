@@ -171,6 +171,8 @@ public class CrossroadDrawer {
             if (next.getTimeToStart() > 0)
                 continue;
             
+            next.increaseVelocity();  // увеличиваем скорость
+            
             if (!next.isTurned()) {
             
                 if (next.getLanes() == Constants.second) {
@@ -267,7 +269,6 @@ public class CrossroadDrawer {
                         next.setYOnScreen(next.getYOnScreen() - next.getVelocity());
                         break;
                 }
-                next.setVelocity(next.getVelocity() + (float) (Math.random() / 2 - 0.25));
             }
             
             

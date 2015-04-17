@@ -23,16 +23,22 @@ public class Constants {
     final public static int topToBottom = 4;
     
     // размеры тачек
-    final public static int widthCar = 8;
+    final public static int widthCar = 10;
     final public static int heightCar = 7;
-    final public static int widthBus = 15;
+    final public static int widthBus = 10;
     final public static int heightBus = 7;
     final public static int widthTruck = 10;
     final public static int heightTruck = 7;
+    
+    // допустимое расстояние между тачками
+    final public static float okGap = 5;
     
     // полосы движения
     final public static int first = 1;
     final public static int second = 2;
     final public static int third = 3;
+    
+    // переменная, на которую мы делим рандом, чтобы скорость росла не слишком быстро
+    final public static float den = 20f;
 
 }

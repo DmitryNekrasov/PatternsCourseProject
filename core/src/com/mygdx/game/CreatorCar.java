@@ -18,7 +18,8 @@ public class CreatorCar extends Creator {
     public Vehicle factoryMethod() {
         int velocity = Global.generateRandom(minVelocity, maxVelocity);
         double weight = Global.generateRandom(minWeight, maxWeight) + Math.random();
-        Car car = new Car(velocity, weight);
+        int startMotionDirection = Global.generateRandom(1, 4);
+        Car car = new Car(velocity, weight, startMotionDirection);
         return car;
     }
     

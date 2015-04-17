@@ -15,5 +15,11 @@ public class Constants {
     
     final public static float widthWindow = 1300; // ширина окна
     final public static float heightWindow = 800; // высота окна
+    
+    // направления движения транспортного средства
+    final public static int leftToRight = 1;
+    final public static int rightToLeft = 2;
+    final public static int bottomToTop = 3;
+    final public static int topToBottom = 4;
 
 }

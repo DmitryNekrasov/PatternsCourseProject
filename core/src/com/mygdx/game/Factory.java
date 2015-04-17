@@ -9,10 +9,8 @@ package com.mygdx.game;
  *
  * @author ScanNorOne
  */
-public class Truck extends Vehicle {
-
-    public Truck(int velocity, double weight, int startMotionDirection) {
-        super(velocity, weight, startMotionDirection);
-    }
+public class Factory {
+    
+    final private int minCountVehicle = 10, maxCountVehicle = 20;
     
 }

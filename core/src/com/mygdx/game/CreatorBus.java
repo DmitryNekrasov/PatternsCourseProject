@@ -18,7 +18,8 @@ public class CreatorBus extends Creator {
     public Vehicle factoryMethod() {
         int velocity = Global.generateRandom(minVelocity, maxVelocity);
         double weight = Global.generateRandom(minWeight, maxWeight) + Math.random();
-        Bus bus = new Bus(velocity, weight);
+        int startMotionDirection = Global.generateRandom(1, 4);
+        Bus bus = new Bus(velocity, weight, startMotionDirection);
         return bus;
     }
     

@@ -11,8 +11,8 @@ package com.mygdx.game;
  */
 public class Car extends Vehicle {
 
-    public Car(int velocity, double weight) {
-        super(velocity, weight);
+    public Car(int velocity, double weight, int startMotionDirection) {
+        super(velocity, weight, startMotionDirection);
     }
     
 }

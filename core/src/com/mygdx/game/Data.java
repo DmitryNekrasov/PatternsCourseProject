@@ -13,6 +13,6 @@ import java.util.LinkedList;
  */
 public class Data {
     
-    public static LinkedList<Vehicle> vehicles;  // список транспортных средств
+    public static LinkedList<Vehicle> vehicles = new LinkedList<Vehicle>();  // список транспортных средств
     
 }

@@ -15,8 +15,8 @@ public class MyGdxGame extends ApplicationAdapter {
     @Override
     public void create () {
         sr = new ShapeRenderer();
-        Factory factory = new Factory();
         crossroadDrawer = new CrossroadDrawer(Crossroads.getInstance(), sr);
+        Factory factory = new Factory();
     }
 
     @Override

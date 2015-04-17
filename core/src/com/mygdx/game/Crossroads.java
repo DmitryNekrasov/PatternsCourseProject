@@ -19,21 +19,21 @@ public class Crossroads {
     final public float heightCrosswalk; // высота полоски пешеходника
     
     // экранные координаты тачек на полосах движения
-    public float yFirstLeftToRight;
-    public float ySecondLeftToRight;
-    public float yThirdLeftToRight;
+    public static float yFirstLeftToRight;
+    public static float ySecondLeftToRight;
+    public static float yThirdLeftToRight;
     
-    public float yFirstRightToLeft;
-    public float ySecondRightToLeft;
-    public float yThirdRightToLeft;
+    public static float yFirstRightToLeft;
+    public static float ySecondRightToLeft;
+    public static float yThirdRightToLeft;
     
-    public float xFirstBottomToTop;
-    public float xSecondBottomToTop;
-    public float xThirdBottomToTop;
+    public static float xFirstBottomToTop;
+    public static float xSecondBottomToTop;
+    public static float xThirdBottomToTop;
     
-    public float xFirstTopToBottom;
-    public float xSecondTopToBottom;
-    public float xThirdTopToBottom;
+    public static float xFirstTopToBottom;
+    public static float xSecondTopToBottom;
+    public static float xThirdTopToBottom;
     
     private static Crossroads instance = null;
     
@@ -50,13 +50,15 @@ public class Crossroads {
         float midY = Constants.heightWindow / 2;
         float gap = scaleRoad / 3;
         
-        yFirstLeftToRight = midY - gap;
-        ySecondLeftToRight = midY - 2 * gap;
-        yThirdLeftToRight = midY - 3 * gap;
+        float ultraGap = 4;
         
-        yFirstRightToLeft = midY + gap;
-        ySecondRightToLeft = midY - 2 * gap;
-        yThirdRightToLeft = midY - 3 * gap;
+        yFirstLeftToRight = midY - gap + ultraGap;
+        ySecondLeftToRight = midY - 2 * gap + ultraGap;
+        yThirdLeftToRight = midY - 3 * gap + ultraGap;
+        
+        yFirstRightToLeft = midY + ultraGap;
+        ySecondRightToLeft = midY + gap + ultraGap;
+        yThirdRightToLeft = midY + 2 * gap + ultraGap;
         
     }
     

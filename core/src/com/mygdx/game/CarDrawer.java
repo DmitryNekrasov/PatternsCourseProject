@@ -43,8 +43,8 @@ public class CarDrawer implements IDraw {
         sr.rect(x, y, widthRect, heightRect);
         
         // отладка
-        sr.setColor(Color.YELLOW);
-        sr.rect(x, y, 10, 10);
+//        sr.setColor(Color.YELLOW);
+//        sr.rect(x, y, 10, 10);
     }
     
 }

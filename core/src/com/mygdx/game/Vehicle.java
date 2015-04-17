@@ -18,7 +18,7 @@ public abstract class Vehicle {
     private int startMotionDirection, finishMotionDirection;
     private float xOnScreen, yOnScreen;
     protected int width, height;
-    private boolean turn;
+    private boolean turn;  // признак поворота
     private int lanes;  // номера полосы движения
     
     public Vehicle(int velocity, double weight, int startMotionDirection) {
@@ -120,6 +120,14 @@ public abstract class Vehicle {
     
     public void makeTurn() {
         this.turn = true;
+    }
+    
+    public int getLanes() {
+        return this.lanes;
+    }
+    
+    public void setLanes(int lanes) {
+        this.lanes = lanes;
     }
     
     private int generateFinishMotionDirection(int startMotionDirection) {

@@ -21,7 +21,22 @@ public class CreatorCar extends Creator {
         int startMotionDirection = Global.generateRandom(1, 4);
         Car car = new Car(velocity, weight, startMotionDirection);
         float x = (float) Global.generateRandom(0, (int) Constants.widthWindow);
-        float y = (float) Global.generateRandom(0, (int) Constants.heightWindow);
+        float y = (float) Global.generateRandom(0, (int) Constants.widthWindow);
+        
+        if (car.getStartMotionDirection() == Constants.leftToRight) {
+            switch (car.getLanes()) {
+                case Constants.first: y = Crossroads.yFirstLeftToRight; break;
+                case Constants.second: y = Crossroads.ySecondLeftToRight; break;
+                default: y = Crossroads.yThirdLeftToRight; break;
+            }
+        } else if (car.getStartMotionDirection() == Constants.rightToLeft) {
+            switch (car.getLanes()) {
+                case Constants.first: y = Crossroads.yFirstRightToLeft; break;
+                case Constants.second: y = Crossroads.ySecondRightToLeft; break;
+                default: y = Crossroads.yThirdRightToLeft; break;
+            }
+        }
+        
         car.setXOnScreen(x);
         car.setYOnScreen(y);
         return car;

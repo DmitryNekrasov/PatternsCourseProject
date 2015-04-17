@@ -5,15 +5,14 @@
  */
 package com.mygdx.game;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author ScanNorOne
  */
-public class Constants {
+public class Data {
     
-    final public static float scale = (float) 1;
+    public static LinkedList<Vehicle> vehicles;  // список транспортных средств
     
-    final public static float widthWindow = 1300; // ширина окна
-    final public static float heightWindow = 800; // высота окна
-
 }

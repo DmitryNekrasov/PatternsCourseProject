@@ -5,15 +5,17 @@
  */
 package com.mygdx.game;
 
+import java.util.Random;
+
 /**
  *
  * @author ScanNorOne
  */
-public class Constants {
+public class Global {
     
-    final public static float scale = (float) 1;
+    public static Random random = new Random();
+    public static int generateRandom(int left, int right) {
+        return Math.abs(random.nextInt()) % (right - left + 1) + left;
+    }
     
-    final public static float widthWindow = 1300; // ширина окна
-    final public static float heightWindow = 800; // высота окна
-
 }

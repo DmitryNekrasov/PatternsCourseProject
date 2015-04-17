@@ -13,6 +13,7 @@ public class Truck extends Vehicle {
 
     public Truck(int velocity, double weight, int startMotionDirection) {
         super(velocity, weight, startMotionDirection);
+        drawAction = new TruckDrawer();
     }
     
 }

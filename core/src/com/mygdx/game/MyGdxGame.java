@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g3d.particles.influencers.DynamicsModifier;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class MyGdxGame extends ApplicationAdapter {
@@ -14,6 +15,7 @@ public class MyGdxGame extends ApplicationAdapter {
     @Override
     public void create () {
         sr = new ShapeRenderer();
+        Factory factory = new Factory();
         crossroadDrawer = new CrossroadDrawer(Crossroads.getInstance(), sr);
     }
 

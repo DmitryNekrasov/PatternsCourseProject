@@ -154,6 +154,11 @@ public class CrossroadDrawer {
             startShortMarking -= 2 * crossroads.widthShortMarking;
         }
         
+        // тачки
+        for (Vehicle next: Data.vehicles) {
+            next.performDraw(sr);
+        }
+        
         sr.end();
     }
     

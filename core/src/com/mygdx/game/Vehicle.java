@@ -5,6 +5,8 @@
  */
 package com.mygdx.game;
 
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+
 /**
  *
  * @author ScanNorOne
@@ -20,6 +22,12 @@ public abstract class Vehicle {
         this.weight = weight;
         this.startMotionDirection = startMotionDirection;
         this.finishMotionDirection = generateFinishMotionDirection(startMotionDirection);
+    }
+    
+    public IDraw drawAction;
+    
+    public void performDraw(ShapeRenderer sr) {
+        drawAction.draw(sr, this);
     }
     
     public int getVelocity() {

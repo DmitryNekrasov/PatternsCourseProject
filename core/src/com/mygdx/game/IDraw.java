@@ -5,15 +5,12 @@
  */
 package com.mygdx.game;
 
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+
 /**
  *
  * @author ScanNorOne
  */
-public class Bus extends Vehicle {
-
-    public Bus(int velocity, double weight, int startMotionDirection) {
-        super(velocity, weight, startMotionDirection);
-        drawAction = new BusDrawer();
-    }
-    
+public interface IDraw {
+    public void draw(ShapeRenderer sr, Vehicle vehicle);
 }

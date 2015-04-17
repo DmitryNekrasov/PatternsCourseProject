@@ -11,7 +11,7 @@ package com.mygdx.game;
  */
 public class Factory {
     
-    final private int minCountVehicle = 50, maxCountVehicle = 100;
+    final private int minCountVehicle = 200, maxCountVehicle = 300;
     
     public Factory() {
         

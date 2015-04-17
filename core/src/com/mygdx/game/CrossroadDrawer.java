@@ -165,6 +165,9 @@ public class CrossroadDrawer {
     }
     
     public void motion() {
+        
+        speedReduction();
+        
         for (Vehicle next: Data.vehicles) {
             next.reduceTimeToStart();
             
@@ -270,8 +273,29 @@ public class CrossroadDrawer {
                         break;
                 }
             }
-            
-            
+             
+        }
+         
+    }
+    
+    // снижение скорости при близком контакте
+    public void speedReduction() {
+        for (Vehicle veh1: Data.vehicles) {
+            for (Vehicle veh2: Data.vehicles) {
+                
+                if (veh1 == veh2)
+                    continue;
+                
+                if (veh1.getCurrentMotionDirection() == veh2.getCurrentMotionDirection()) {
+                    switch (veh1.getCurrentMotionDirection()) {
+                        case Constants.leftToRight:
+                            if (veh2.getXOnScreen() + veh2.getWidth() + Constants.okGap < veh1.getXOnScreen() && veh2.getXOnScreen() + veh2.getWidth() + Constants.okGap + veh2.getVelocity() > veh1.getXOnScreen()) {
+                                veh2.setVelocity(veh1.getVelocity() / 1.5f);
+                            }
+                            break;
+                    }
+                }
+            }
         }
     }
     

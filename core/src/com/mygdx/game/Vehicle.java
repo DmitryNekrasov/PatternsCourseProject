@@ -15,7 +15,7 @@ public abstract class Vehicle {
     
     private float velocity;
     private double weight;
-    private int startMotionDirection, finishMotionDirection;
+    private int startMotionDirection, finishMotionDirection, currentMotionDirection;
     private float xOnScreen, yOnScreen;
     protected int width, height;
     private boolean turn;  // признак поворота
@@ -27,6 +27,7 @@ public abstract class Vehicle {
         this.velocity = velocity;
         this.weight = weight;
         this.startMotionDirection = startMotionDirection;
+        this.currentMotionDirection = startMotionDirection;
         this.finishMotionDirection = generateFinishMotionDirection(startMotionDirection);
         turn = false;
         this.stepVelocity = velocity / Constants.den;
@@ -85,6 +86,14 @@ public abstract class Vehicle {
         this.finishMotionDirection = finishMotionDirection;
     }
     
+    public int getCurrentMotionDirection() {
+        return this.currentMotionDirection;
+    }
+    
+    public void setCurrentMotionDirection(int currentMotionDirection) {
+        this.currentMotionDirection = currentMotionDirection;
+    }
+    
     public float getXOnScreen() {
         return this.xOnScreen;
     }
@@ -123,6 +132,7 @@ public abstract class Vehicle {
     
     public void makeTurn() {
         this.turn = true;
+        this.currentMotionDirection = finishMotionDirection;
     }
     
     public int getLanes() {
